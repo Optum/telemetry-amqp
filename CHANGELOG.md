@@ -1,0 +1,3 @@
+# Telemetry::AMQP
+## v0.1.0
+Initial Release
