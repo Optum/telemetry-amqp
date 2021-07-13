@@ -15,22 +15,6 @@ module Telemetry
         connect! if auto_start && !nodes.nil?
       end
 
-      def application
-        @opts.key?(:application) ? @opts[:application] : 'telemetry::amqp'
-      end
-
-      def app_version
-        @opts.key?(:app_version) ? @opts[:app_version] : Telemetry::AMQP::VERSION
-      end
-
-      def connection_name
-        @opts[:connection_name] || "#{application || 'telemetry_amqp'}:#{app_version || Telemetry::AMQP::VERSION}"
-      end
-
-      def nodes
-        @opts[:nodes]
-      end
-
       def session
         connect! if @session.nil? || !@session.respond_to?(:value)
 

@@ -73,6 +73,22 @@ module Telemetry
                   end
       end
 
+      def application
+        opts.key?(:application) ? @opts[:application] : 'telemetry::amqp'
+      end
+
+      def app_version
+        opts.key?(:app_version) ? @opts[:app_version] : Telemetry::AMQP::VERSION
+      end
+
+      def connection_name
+        opts[:connection_name] || "#{application || 'telemetry_amqp'}:#{app_version || Telemetry::AMQP::VERSION}"
+      end
+
+      def nodes
+        opts[:nodes]
+      end
+
       def opts
         @opts ||= {}
       end
