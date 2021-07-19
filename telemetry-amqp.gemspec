@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Esity']
   spec.email         = ['matt.iverson@optum.com']
 
-  spec.summary       = 'Telemetry amqp Router'
-  spec.description   = 'A gem to handle routing of InfluxDB queries based on measurement names'
+  spec.summary       = 'Telemetry amqp gem'
+  spec.description   = 'A base Telemetry gem for connecting to AMQP services for transport'
   spec.homepage      = 'https://github.com/Optum/telemetry-amqp'
   spec.license       = 'Apache-2.0'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
@@ -31,4 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday_middleware'
   spec.add_dependency 'multi_json'
   spec.add_dependency 'oj', '>= 3.11'
+
+  spec.add_dependency 'telemetry-logger'
 end
