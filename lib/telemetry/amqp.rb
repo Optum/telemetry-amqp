@@ -1,4 +1,5 @@
 require 'telemetry/amqp/version'
+require 'telemetry/logger'
 require 'telemetry/amqp/base'
 
 module Telemetry

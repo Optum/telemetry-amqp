@@ -1,3 +1,6 @@
+require 'telemetry/logger'
+
+Telemetry::Logger.log_level = 'warn'
 require 'simplecov'
 SimpleCov.start do
   add_filter 'spec'

@@ -43,6 +43,7 @@ module Telemetry
             port: port,
             connection_name: connection_name,
             log_level: ::Logger::WARN,
+            logger: Telemetry::Logger,
             automatically_recover: opts[:automatically_recover] || true,
             verify_peer: opts[:verify_peer] || true,
             tls: use_ssl?
