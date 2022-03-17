@@ -27,10 +27,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'bunny'
   spec.add_dependency 'concurrent-ruby', '>= 1.1.7'
   spec.add_dependency 'concurrent-ruby-ext', '>= 1.1.7'
-  spec.add_dependency 'faraday', '>= 1.3'
-  spec.add_dependency 'faraday_middleware'
+  spec.add_dependency 'faraday', '>= 2'
   spec.add_dependency 'multi_json'
   spec.add_dependency 'oj', '>= 3.11'
 
   spec.add_dependency 'telemetry-logger'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end

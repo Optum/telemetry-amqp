@@ -1,6 +1,5 @@
 require 'telemetry/amqp/defaults'
 require 'faraday'
-require 'faraday_middleware'
 
 module Telemetry
   module AMQP
@@ -53,15 +52,15 @@ module Telemetry
         nil
       end
 
-      def ex_q_bindings(exchange:, queue:, **)
-        mgmt_connection.get("/api/bindings/telegraf/e/#{exchange}/q/#{queue}").body
+      def ex_q_bindings(exchange:, queue:, vhost: '/', **)
+        mgmt_connection.get("/api/bindings/#{vhost}/e/#{exchange}/q/#{queue}").body
       rescue StandardError => e
         puts e.message
 
         []
       end
 
-      def remove_binding(exchange: 'influxdb.out', queue: "influxdb.#{hostname}", key: '#', vhost: 'telegraf', **)
+      def remove_binding(exchange: 'influxdb.out', queue: "influxdb.#{hostname}", key: '#', vhost: '/', **)
         mgmt_connection.delete("/api/bindings/#{vhost}/e/#{exchange}/q/#{queue}/#{key}").success?
       rescue StandardError => e
         puts e.message
